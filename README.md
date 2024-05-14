@@ -1,5 +1,7 @@
 # BWS
  Server in java for the Bloodwars Online MMO
+ 
+ BWS stands for BloodWars Server
 
  Still setting up the code work with Unity. So far can receive json but Unity isnt receiving anything
  
