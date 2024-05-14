@@ -32,7 +32,7 @@ public class BWS {
 	                                  ServerMessageSerializer serializer = new ServerMessageSerializer();
 	                                  pipeline.addLast(new ServerMessageEncoder(serializer));
 	                                  pipeline.addLast(new ServerMessageDecoder(serializer, 10 * 1024 * 1024));
-
+	                                  
 	                                  // Add your custom handler for processing incoming messages
 	                                  pipeline.addLast(new Incoming());
 	                              }

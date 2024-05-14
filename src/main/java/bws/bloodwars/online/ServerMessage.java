@@ -1,14 +1,11 @@
 package bws.bloodwars.online;
 
 public class ServerMessage {
-	private String content;
+	public String uri;
+	public String content;
 
-    // Getter and setter methods
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
+    public void setContent(String uri, String content) {
+    	this.uri = uri;
         this.content = content;
     }
 }

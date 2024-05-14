@@ -1,6 +1,5 @@
 package bws.bloodwars.online;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.List;
 
 import io.netty.buffer.ByteBuf;
@@ -18,9 +17,6 @@ public class ServerMessageDecoder extends ByteToMessageDecoder {
 		// Read incoming byte data into a byte array 'data'
         byte[] data = new byte[in.readableBytes()];
         in.readBytes(data);
-
-        // Log incoming byte data
-        System.out.println("Incoming byte data: " + Arrays.toString(data));
 
         // Convert byte data to JSON string
         String jsonString = new String(data, StandardCharsets.UTF_8);

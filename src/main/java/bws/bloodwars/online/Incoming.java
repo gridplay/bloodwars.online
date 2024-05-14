@@ -15,7 +15,7 @@ public class Incoming extends ChannelInboundHandlerAdapter {
 
             // Construct and send a response message to the client
             ServerMessage responseMessage = new ServerMessage();
-            responseMessage.setContent("Hello, client! I received your message.");
+            responseMessage.setContent("reply", "Hello, client! I received your message.");
             byte[] serializedMessage = MessageSerializer.serializeMessage(responseMessage);
             ctx.writeAndFlush(Unpooled.copiedBuffer(serializedMessage));
     	} else if (msg instanceof String) {
@@ -24,7 +24,7 @@ public class Incoming extends ChannelInboundHandlerAdapter {
             System.out.println("Received string message: " + stringMessage);
             // Construct and send a response message to the client
             ServerMessage responseMessage = new ServerMessage();
-            responseMessage.setContent("Hello, client! I received your message.");
+            responseMessage.setContent("reply", "Hello, client! I received your message.");
             byte[] serializedMessage = MessageSerializer.serializeMessage(responseMessage);
             ctx.writeAndFlush(Unpooled.copiedBuffer(serializedMessage));
         } else {
