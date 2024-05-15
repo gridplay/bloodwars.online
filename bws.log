@@ -1,0 +1,34 @@
+2024-05-15 12:13:27.876 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 12:13:27.917 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-15 12:13:28.018 [main] INFO  bws.bloodwars.online.Server.BWS - Netty server started on port 666
+2024-05-15 12:13:28.086 [nioEventLoopGroup-2-1] INFO  bws.bloodwars.online.Server.Incoming - Client connected: null
+2024-05-15 12:16:38.198 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 12:16:38.236 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-15 12:16:38.335 [main] INFO  bws.bloodwars.online.Server.BWS - Netty server started on port 666
+2024-05-15 12:16:38.403 [nioEventLoopGroup-2-1] INFO  bws.bloodwars.online.Server.Incoming - Client connected: null
+2024-05-15 12:21:00.701 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 12:21:00.738 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-15 12:21:00.843 [main] INFO  bws.bloodwars.online.Server.BWS - Netty server started on port 666
+2024-05-15 12:21:00.909 [nioEventLoopGroup-2-1] INFO  bws.bloodwars.online.Server.Incoming - Client connected: null
+2024-05-15 12:28:02.652 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 12:28:02.689 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-15 12:28:02.784 [main] INFO  bws.bloodwars.online.Server.BWS - Netty server started on port 666
+2024-05-15 12:28:02.853 [nioEventLoopGroup-2-1] INFO  bws.bloodwars.online.Server.Incoming - Client connected: null
+2024-05-15 12:32:00.965 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 12:32:01.005 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-15 12:32:01.101 [main] INFO  bws.bloodwars.online.Server.BWS - Netty server started on port 666
+2024-05-15 12:32:01.173 [nioEventLoopGroup-2-1] INFO  bws.bloodwars.online.Server.Incoming - Client connected: null
+2024-05-15 13:40:21.971 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 13:40:21.977 [main] INFO  bws.bloodwars.online.Server.BWS - Server started on port 666
+2024-05-15 13:43:16.088 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 13:43:16.096 [main] INFO  bws.bloodwars.online.Server.BWS - Server started on port 666
+2024-05-15 13:56:00.898 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 13:56:00.905 [main] INFO  bws.bloodwars.online.Server.BWS - Server started on port 666
+2024-05-15 14:01:18.582 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 14:01:18.589 [main] INFO  bws.bloodwars.online.Server.BWS - Server started on port 666
+2024-05-15 14:07:07.449 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 14:07:07.525 [main] INFO  bws.bloodwars.online.Server.BWS - Server started on port 666
+2024-05-15 14:09:50.175 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 14:09:50.248 [main] INFO  bws.bloodwars.online.Server.BWS - Server started on port 7777
+2024-05-15 14:19:18.503 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 14:19:18.581 [main] INFO  bws.bloodwars.online.Server.BWS - Server started on port 666
