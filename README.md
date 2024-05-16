@@ -11,5 +11,6 @@
  
  Tell their story of the game using assets or just have fun
 
- As of May 16 2024 decided to try Riptide in Unity as a server. Will leave this repo up incase i ever come back to this idea or for anyone who looking to get started with their own java based server
+ As of May 16 2024 decided to try Riptide in Unity as a server.
+ Will leave this repo up incase i ever come back to this idea or for anyone who looking to get started with their own java based server
  
