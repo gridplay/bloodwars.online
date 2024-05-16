@@ -19,7 +19,12 @@ public class App implements Runnable {
     @Override
     public void run() {
 		logger.info("BloodWars Online server. Starting up");
-    	bws = new BWS(this.port);
+    	try {
+			bws = new BWS(this.port);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     public static void main(String[] args) {

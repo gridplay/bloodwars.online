@@ -32,3 +32,7 @@
 2024-05-15 14:09:50.248 [main] INFO  bws.bloodwars.online.Server.BWS - Server started on port 7777
 2024-05-15 14:19:18.503 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
 2024-05-15 14:19:18.581 [main] INFO  bws.bloodwars.online.Server.BWS - Server started on port 666
+2024-05-15 16:05:21.014 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 16:05:21.109 [main] INFO  bws.bloodwars.online.Server.BWS - Server started on port 666
+2024-05-15 20:26:01.732 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-15 20:26:01.764 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
