@@ -3,7 +3,7 @@
  
  BWS stands for BloodWars Server
 
- Still setting up the code work with Unity. So far can receive json but Unity isnt receiving anything
+ Still setting up the code work with Unity.
  
  All help is welcomed.
  
@@ -11,6 +11,6 @@
  
  Tell their story of the game using assets or just have fun
 
- As of May 16 2024 decided to try Riptide in Unity as a server.
- Will leave this repo up incase i ever come back to this idea or for anyone who looking to get started with their own java based server
- 
+ May 18 2024 - Got it working with Unity 6. Had to write my own TCP in unity to get it to work. For now we roll with sending JSON messages.
+
+ If anyone like to help with a better way of sending and receiving messages between this and Unity 6 please hit me up on discord as venx84
