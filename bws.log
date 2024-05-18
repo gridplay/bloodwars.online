@@ -58,3 +58,68 @@
 2024-05-18 10:11:28.032 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x51bd0733] REGISTERED
 2024-05-18 10:11:28.035 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x51bd0733] BIND: 0.0.0.0/0.0.0.0:666
 2024-05-18 10:11:28.039 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x51bd0733, L:/[0:0:0:0:0:0:0:0]:666] ACTIVE
+2024-05-18 11:51:33.248 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-18 11:51:33.355 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-18 11:51:33.588 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x1acc00fb] REGISTERED
+2024-05-18 11:51:33.591 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x1acc00fb] BIND: 0.0.0.0/0.0.0.0:666
+2024-05-18 11:51:33.595 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x1acc00fb, L:/[0:0:0:0:0:0:0:0]:666] ACTIVE
+2024-05-18 11:51:57.243 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x1acc00fb, L:/[0:0:0:0:0:0:0:0]:666] READ: [id: 0x0d15f5b5, L:/127.0.0.1:666 - R:/127.0.0.1:51208]
+2024-05-18 11:51:57.245 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x1acc00fb, L:/[0:0:0:0:0:0:0:0]:666] READ COMPLETE
+2024-05-18 12:00:31.699 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-18 12:00:31.783 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-18 12:00:31.968 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x44b14fe6] REGISTERED
+2024-05-18 12:00:31.970 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x44b14fe6] BIND: 0.0.0.0/0.0.0.0:666
+2024-05-18 12:00:31.975 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x44b14fe6, L:/[0:0:0:0:0:0:0:0]:666] ACTIVE
+2024-05-18 12:00:44.612 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x44b14fe6, L:/[0:0:0:0:0:0:0:0]:666] READ: [id: 0xab5f49e2, L:/127.0.0.1:666 - R:/127.0.0.1:51257]
+2024-05-18 12:00:44.613 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x44b14fe6, L:/[0:0:0:0:0:0:0:0]:666] READ COMPLETE
+2024-05-18 12:05:55.192 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-18 12:05:55.276 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-18 12:05:55.458 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xd5be29ef] REGISTERED
+2024-05-18 12:05:55.461 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xd5be29ef] BIND: 0.0.0.0/0.0.0.0:666
+2024-05-18 12:05:55.466 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xd5be29ef, L:/[0:0:0:0:0:0:0:0]:666] ACTIVE
+2024-05-18 12:06:06.269 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xd5be29ef, L:/[0:0:0:0:0:0:0:0]:666] READ: [id: 0xa4b47111, L:/127.0.0.1:666 - R:/127.0.0.1:51263]
+2024-05-18 12:06:06.270 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xd5be29ef, L:/[0:0:0:0:0:0:0:0]:666] READ COMPLETE
+2024-05-18 12:08:06.057 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-18 12:08:06.138 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-18 12:08:06.318 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x751f097c] REGISTERED
+2024-05-18 12:08:06.320 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x751f097c] BIND: 0.0.0.0/0.0.0.0:666
+2024-05-18 12:08:06.325 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x751f097c, L:/[0:0:0:0:0:0:0:0]:666] ACTIVE
+2024-05-18 12:08:15.165 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x751f097c, L:/[0:0:0:0:0:0:0:0]:666] READ: [id: 0x61ce72a6, L:/127.0.0.1:666 - R:/127.0.0.1:51272]
+2024-05-18 12:08:15.166 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x751f097c, L:/[0:0:0:0:0:0:0:0]:666] READ COMPLETE
+2024-05-18 12:08:15.175 [nioEventLoopGroup-3-1] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client connected: /127.0.0.1:51272
+2024-05-18 12:08:15.244 [nioEventLoopGroup-3-1] INFO  bws.bloodwars.online.Server.JsonServerHandler - Received message: {uri=test, content=yolo}
+2024-05-18 12:08:17.142 [nioEventLoopGroup-3-1] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client disconnected: /127.0.0.1:51272
+2024-05-18 12:12:19.463 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-18 12:12:19.548 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-18 12:12:19.725 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xc57d4140] REGISTERED
+2024-05-18 12:12:19.728 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xc57d4140] BIND: 0.0.0.0/0.0.0.0:666
+2024-05-18 12:12:19.731 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xc57d4140, L:/[0:0:0:0:0:0:0:0]:666] ACTIVE
+2024-05-18 12:12:29.358 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xc57d4140, L:/[0:0:0:0:0:0:0:0]:666] READ: [id: 0x55001dfb, L:/127.0.0.1:666 - R:/127.0.0.1:51295]
+2024-05-18 12:12:29.358 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xc57d4140, L:/[0:0:0:0:0:0:0:0]:666] READ COMPLETE
+2024-05-18 12:12:29.365 [nioEventLoopGroup-3-1] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client connected: /127.0.0.1:51295
+2024-05-18 12:12:29.432 [nioEventLoopGroup-3-1] INFO  bws.bloodwars.online.Server.JsonServerHandler - Received message: {uri=test, content=yolo}
+2024-05-18 12:12:49.840 [nioEventLoopGroup-3-1] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client disconnected: /127.0.0.1:51295
+2024-05-18 12:16:43.377 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-18 12:16:43.462 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-18 12:16:43.634 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x364371ed] REGISTERED
+2024-05-18 12:16:43.636 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x364371ed] BIND: 0.0.0.0/0.0.0.0:666
+2024-05-18 12:16:43.640 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x364371ed, L:/[0:0:0:0:0:0:0:0]:666] ACTIVE
+2024-05-18 12:16:51.805 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x364371ed, L:/[0:0:0:0:0:0:0:0]:666] READ: [id: 0x4240d4a2, L:/127.0.0.1:666 - R:/127.0.0.1:51355]
+2024-05-18 12:16:51.806 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x364371ed, L:/[0:0:0:0:0:0:0:0]:666] READ COMPLETE
+2024-05-18 12:16:51.813 [nioEventLoopGroup-3-1] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client connected: /127.0.0.1:51355
+2024-05-18 12:17:02.747 [nioEventLoopGroup-3-1] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client disconnected: /127.0.0.1:51355
+2024-05-18 12:22:50.600 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x364371ed, L:/[0:0:0:0:0:0:0:0]:666] READ: [id: 0xbc591391, L:/127.0.0.1:666 - R:/127.0.0.1:51402]
+2024-05-18 12:22:50.600 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x364371ed, L:/[0:0:0:0:0:0:0:0]:666] READ COMPLETE
+2024-05-18 12:22:50.601 [nioEventLoopGroup-3-2] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client connected: /127.0.0.1:51402
+2024-05-18 12:22:50.626 [nioEventLoopGroup-3-2] INFO  bws.bloodwars.online.Server.JsonServerHandler - Received message: {}
+2024-05-18 12:23:02.341 [nioEventLoopGroup-3-2] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client disconnected: /127.0.0.1:51402
+2024-05-18 12:24:26.890 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x364371ed, L:/[0:0:0:0:0:0:0:0]:666] READ: [id: 0x9a5c0ba6, L:/127.0.0.1:666 - R:/127.0.0.1:51413]
+2024-05-18 12:24:26.892 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x364371ed, L:/[0:0:0:0:0:0:0:0]:666] READ COMPLETE
+2024-05-18 12:24:26.892 [nioEventLoopGroup-3-3] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client connected: /127.0.0.1:51413
+2024-05-18 12:24:26.901 [nioEventLoopGroup-3-3] INFO  bws.bloodwars.online.Server.JsonServerHandler - Received message: {}
+2024-05-18 12:24:29.690 [nioEventLoopGroup-3-3] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client disconnected: /127.0.0.1:51413
+2024-05-18 12:27:55.730 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x364371ed, L:/[0:0:0:0:0:0:0:0]:666] READ: [id: 0x2c49e2aa, L:/127.0.0.1:666 - R:/127.0.0.1:51424]
+2024-05-18 12:27:55.730 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x364371ed, L:/[0:0:0:0:0:0:0:0]:666] READ COMPLETE
+2024-05-18 12:27:55.731 [nioEventLoopGroup-3-4] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client connected: /127.0.0.1:51424
+2024-05-18 12:27:55.739 [nioEventLoopGroup-3-4] INFO  bws.bloodwars.online.Server.JsonServerHandler - Received message: {uri=test, content=yolo}
+2024-05-18 12:28:17.796 [nioEventLoopGroup-3-4] INFO  bws.bloodwars.online.Server.JsonServerHandler - Client disconnected: /127.0.0.1:51424

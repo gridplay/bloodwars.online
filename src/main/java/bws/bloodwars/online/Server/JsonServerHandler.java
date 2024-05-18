@@ -1,13 +1,16 @@
 package bws.bloodwars.online.Server;
 
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 class JsonServerHandler extends SimpleChannelInboundHandler<String> {
+	 private static final Logger logger = LogManager.getLogger(JsonServerHandler.class);
     private final ObjectMapper objectMapper;
 
     public JsonServerHandler(ObjectMapper objectMapper) {
@@ -19,7 +22,7 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
         // Deserialize JSON message to a Map
         @SuppressWarnings("unchecked")
 		Map<String, Object> message = objectMapper.readValue(msg, Map.class);
-        System.out.println("Received message: " + message);
+        logger.info("Received message: " + message);
         
         // Handle message and send response
         message.put("response", "Hello from Netty!");
@@ -31,4 +34,15 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
         cause.printStackTrace();
         ctx.close();
     }
+	@Override
+	public void channelActive(ChannelHandlerContext ctx) {
+	    // Channel becomes active (connected)
+	    logger.info("Client connected: " + ctx.channel().remoteAddress());
+	}
+	@Override
+	public void channelInactive(ChannelHandlerContext ctx) {
+	    // Channel becomes inactive (disconnected)
+		logger.info("Client disconnected: " + ctx.channel().remoteAddress());
+	    // Clean up resources, remove client from active connections list, etc.
+	}
 }
