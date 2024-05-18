@@ -9,6 +9,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+//import org.msgpack.MessagePack;
+
 class JsonServerHandler extends SimpleChannelInboundHandler<String> {
 	 private static final Logger logger = LogManager.getLogger(JsonServerHandler.class);
     private final ObjectMapper objectMapper;
@@ -22,7 +25,7 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
         // Deserialize JSON message to a Map
         @SuppressWarnings("unchecked")
 		Map<String, Object> message = objectMapper.readValue(msg, Map.class);
-        logger.info("Received message: " + message);
+        logger.info("Received message: " + message.toString());
         
         // Handle message and send response
         message.put("response", "Hello from Netty!");
