@@ -5,24 +5,39 @@ import org.apache.logging.log4j.Logger;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.serialization.ClassResolvers;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 public class BWS {
 	 private static final Logger logger = LogManager.getLogger(BWS.class);
 	 public BWS(int port) throws Exception {
-		NioEventLoopGroup bossGroup = new NioEventLoopGroup(1);
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+		 EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+	     EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         try {
-            ServerBootstrap serverBootstrap = new ServerBootstrap();
-            serverBootstrap.group(bossGroup, workerGroup)
-                           .channel(NioServerSocketChannel.class)
-                           .childHandler(new ServerInitializer());
+        	ServerBootstrap b = new ServerBootstrap();
+        	b.group(bossGroup, workerGroup)
+            .channel(NioServerSocketChannel.class)
+            .handler(new LoggingHandler(LogLevel.INFO))
+            .childHandler(new ChannelInitializer<SocketChannel>() {
+                @Override
+                public void initChannel(SocketChannel ch) {
+                    ChannelPipeline p = ch.pipeline();
+                    p.addLast(new GameMessageDecoder());
+                    p.addLast(new GameMessageEncoder());
+                    p.addLast(new GameServerHandler());
+                }
+            });
 
-            ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
-            channelFuture.channel().closeFuture().sync();
+	        ChannelFuture f = b.bind(port).sync();
+	        f.channel().closeFuture().sync();
         } finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
