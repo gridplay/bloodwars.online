@@ -3,6 +3,8 @@ package bws.bloodwars.online.Server;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -11,12 +13,15 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.serialization.ClassResolvers;
+import io.netty.handler.codec.json.JsonObjectDecoder;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
 public class BWS {
 	 private static final Logger logger = LogManager.getLogger(BWS.class);
+	 private final ObjectMapper objectMapper = new ObjectMapper();
 	 public BWS(int port) throws Exception {
 		 EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 	     EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -24,15 +29,16 @@ public class BWS {
         try {
         	ServerBootstrap b = new ServerBootstrap();
         	b.group(bossGroup, workerGroup)
-            .channel(NioServerSocketChannel.class)
+        	.channel(NioServerSocketChannel.class)
             .handler(new LoggingHandler(LogLevel.INFO))
             .childHandler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel ch) {
                     ChannelPipeline p = ch.pipeline();
-                    p.addLast(new GameMessageDecoder());
-                    p.addLast(new GameMessageEncoder());
-                    p.addLast(new GameServerHandler());
+                    p.addLast(new JsonObjectDecoder());
+                    p.addLast(new StringDecoder());
+                    p.addLast(new StringEncoder());
+                    p.addLast(new JsonServerHandler(objectMapper));
                 }
             });
 

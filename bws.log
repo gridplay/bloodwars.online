@@ -43,3 +43,18 @@
 2024-05-18 09:32:31.025 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xbfab6518] REGISTERED
 2024-05-18 09:32:31.027 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xbfab6518] BIND: 0.0.0.0/0.0.0.0:666
 2024-05-18 09:32:31.031 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xbfab6518, L:/[0:0:0:0:0:0:0:0]:666] ACTIVE
+2024-05-18 09:47:56.691 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-18 09:47:56.734 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-18 09:47:56.913 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x7011f3d3] REGISTERED
+2024-05-18 09:47:56.916 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x7011f3d3] BIND: 0.0.0.0/0.0.0.0:666
+2024-05-18 09:47:56.920 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x7011f3d3, L:/[0:0:0:0:0:0:0:0]:666] ACTIVE
+2024-05-18 09:58:10.918 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-18 09:58:10.954 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-18 09:58:11.136 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x101ed3c9] REGISTERED
+2024-05-18 09:58:11.138 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x101ed3c9] BIND: 0.0.0.0/0.0.0.0:666
+2024-05-18 09:58:11.142 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x101ed3c9, L:/[0:0:0:0:0:0:0:0]:666] ACTIVE
+2024-05-18 10:11:27.759 [main] INFO  bws.bloodwars.online.App - BloodWars Online server. Starting up
+2024-05-18 10:11:27.843 [main] INFO  io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system instability.
+2024-05-18 10:11:28.032 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x51bd0733] REGISTERED
+2024-05-18 10:11:28.035 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x51bd0733] BIND: 0.0.0.0/0.0.0.0:666
+2024-05-18 10:11:28.039 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x51bd0733, L:/[0:0:0:0:0:0:0:0]:666] ACTIVE

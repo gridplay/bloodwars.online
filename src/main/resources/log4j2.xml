@@ -21,6 +21,7 @@
         
         <!-- Specific Logger Example -->
         <Logger name="bws.bloodwars.online" level="debug"/>
+        <Logger name="bws.bloodwars.online.Server" level="debug"/>
         <!-- Uncomment the line above and replace "com.example.package" with your package name to set a specific log level for that package. -->
     </Loggers>
 </Configuration>

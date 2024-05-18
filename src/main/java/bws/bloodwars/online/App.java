@@ -22,7 +22,6 @@ public class App implements Runnable {
     	try {
 			bws = new BWS(this.port);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
