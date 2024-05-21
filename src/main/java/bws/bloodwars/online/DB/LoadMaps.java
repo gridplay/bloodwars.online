@@ -27,8 +27,6 @@ public class LoadMaps {
                 while (resultSet.next()) {
                     int id = resultSet.getInt("mapid");
                     String mapname = resultSet.getString("name");
-
-                    logger.info("ID: " + id + ", Map Name: " + mapname);
                 }
 
                 resultSet.close();

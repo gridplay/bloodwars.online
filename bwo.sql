@@ -1,3 +1,19 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               11.3.2-MariaDB-log - mariadb.org binary distribution
+-- Server OS:                    Win64
+-- HeidiSQL Version:             12.7.0.6850
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 
 -- Dumping database structure for bwo
 CREATE DATABASE IF NOT EXISTS `bwo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
@@ -6,11 +22,9 @@ USE `bwo`;
 -- Dumping structure for table bwo.accounts
 CREATE TABLE IF NOT EXISTS `accounts` (
   `id` varchar(255) DEFAULT NULL,
+  `gpid` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
   `created` bigint(255) DEFAULT NULL,
-  `updated` bigint(255) DEFAULT NULL,
   `rank` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -32,13 +46,12 @@ CREATE TABLE IF NOT EXISTS `characters` (
 CREATE TABLE IF NOT EXISTS `maps` (
   `mapid` int(11) DEFAULT 0,
   `name` varchar(50) DEFAULT NULL
-  `buildid` int(11) DEFAULT 0,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table bwo.maps: ~2 rows (approximately)
-INSERT INTO `maps` (`mapid`, `name`, `buildid`) VALUES
-	(0, 'New Hamilton', 3),
-	(1, 'Noxloma', 4);
+INSERT INTO `maps` (`mapid`, `name`) VALUES
+	(0, 'NewHamilton'),
+	(1, 'Noxloma');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

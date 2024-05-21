@@ -18,10 +18,14 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.util.concurrent.GlobalEventExecutor;
+import io.netty.channel.group.ChannelGroup;
+import io.netty.channel.group.DefaultChannelGroup;
 
 public class BWS {
 	 private static final Logger logger = LogManager.getLogger(BWS.class);
 	 private final ObjectMapper objectMapper = new ObjectMapper();
+	 public static final ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 	 public BWS(int port) throws Exception {
 		 EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 	     EventLoopGroup workerGroup = new NioEventLoopGroup();
