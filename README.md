@@ -1,7 +1,7 @@
-# BWS
-Server in java for the Bloodwars Online MMO
+# EoEs
+Server in java for the Eclipse of Eternity
 
-BWS stands for BloodWars Server
+EoEs stands for Eclipse of Eternity Server
 
 Still setting up the code work with Unity.
 
@@ -14,3 +14,5 @@ Tell their story of the game using assets or just have fun
 May 18 2024 - Got it working with Unity 6. Had to write my own TCP in unity to get it to work. For now we roll with sending JSON messages.
 
 If anyone like to help with a better way of sending and receiving messages between this and Unity 6 please hit me up on discord as venx84
+
+As of May 22 2024 thanks to ChatGPT found out that BloodWars is already a MMO so with its help on a new name went with Eclipse of Eternity.
