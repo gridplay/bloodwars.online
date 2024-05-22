@@ -1,4 +1,4 @@
-module bloodwars.online {
+module eoes {
     requires info.picocli;
     requires org.apache.logging.log4j;
     requires io.netty.all;
@@ -7,8 +7,8 @@ module bloodwars.online {
 	requires java.sql;
 	//requires org.msgpack.core;
 
-    opens bws.bloodwars.online to info.picocli;
+    opens eoes to info.picocli;
     
-    exports bws.bloodwars.online;
-    exports bws.bloodwars.online.Server;
+    exports eoes;
+    exports eoes.Server;
 }

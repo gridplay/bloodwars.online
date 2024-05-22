@@ -1,4 +1,4 @@
-package bws.bloodwars.online.DB;
+package eoes.DB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

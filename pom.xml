@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>bws</groupId>
-    <artifactId>bloodwars.online</artifactId>
+    <groupId>eoes</groupId>
+    <artifactId>eoes</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
@@ -17,7 +17,7 @@
         <junit-jupiter.version>5.7.2</junit-jupiter.version>
         <picocli.version>4.7.6</picocli.version>
         <log4j.version>2.23.1</log4j.version>
-        <project.mainclass>bws.App</project.mainclass>
+        <project.mainclass>eoes.App</project.mainclass>
     </properties>
 
     <build>

@@ -1,4 +1,4 @@
-package bws.bloodwars.online.Server;
+package eoes.Server;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;

@@ -1,4 +1,4 @@
-package bws.bloodwars.online.DB;
+package eoes.DB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,7 +7,7 @@ import java.sql.Statement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import bws.bloodwars.online.App;
+import eoes.App;
 
 public class LoadMaps {
 	private static final Logger logger = LogManager.getLogger(LoadMaps.class);

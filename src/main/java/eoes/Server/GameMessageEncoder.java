@@ -1,4 +1,4 @@
-package bws.bloodwars.online.Server;
+package eoes.Server;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

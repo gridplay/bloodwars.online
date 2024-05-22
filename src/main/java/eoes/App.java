@@ -1,9 +1,14 @@
-package bws.bloodwars.online;
+package eoes;
 
 import java.io.File;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import eoes.DB.DB;
+import eoes.DB.LoadMaps;
+import eoes.Server.EOES;
+
 import org.apache.commons.configuration2.INIConfiguration;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;
@@ -14,9 +19,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
 
-import bws.bloodwars.online.DB.DB;
-import bws.bloodwars.online.DB.LoadMaps;
-import bws.bloodwars.online.Server.BWS;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -24,7 +26,7 @@ import picocli.CommandLine.Option;
 @Command(name = "App", version = "App 0.0.1-SNAPSHOT", mixinStandardHelpOptions = true)
 public class App implements Runnable {
 	private static final Logger logger = LogManager.getLogger(App.class);
-	public BWS bws;
+	public EOES eoes;
 	@SuppressWarnings("exports")
 	public Connection connection;
 
@@ -34,11 +36,11 @@ public class App implements Runnable {
     @Override
     public void run() {
     	String sourceLogConfig = "/resources/log4j2.xml";
-    	String sourceLogFile = "/resources/bws.log";
+    	String sourceLogFile = "/resources/eoes.log";
     	String sourceConfig = "/resources/config.ini";
         
         String destinationLogConfig = "log4j2.xml";
-        String destinationLogFile = "bws.log";
+        String destinationLogFile = "eoes.log";
         String destinationConfig = "config.ini";
 
         // Check if the log4j.xml file already exists
@@ -66,9 +68,9 @@ public class App implements Runnable {
         } else {
         	logger.info("Failed to connect to the database.");
         }
-		logger.info("BloodWars Online server. Starting up");
+		logger.info("Eclipse of Eternity server. Starting up");
     	try {
-			bws = new BWS(this.port);
+			eoes = new EOES(this.port);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

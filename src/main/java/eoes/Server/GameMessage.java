@@ -1,4 +1,4 @@
-package bws.bloodwars.online.Server;
+package eoes.Server;
 
 public class GameMessage {
 	private int messageType;

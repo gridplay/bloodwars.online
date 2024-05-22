@@ -1,4 +1,4 @@
-package bws.bloodwars.online.Server;
+package eoes.Server;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

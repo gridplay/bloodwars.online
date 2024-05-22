@@ -15,11 +15,11 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for bwo
-CREATE DATABASE IF NOT EXISTS `bwo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-USE `bwo`;
+-- Dumping database structure for eoes
+CREATE DATABASE IF NOT EXISTS `eoes` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `eoes`;
 
--- Dumping structure for table bwo.accounts
+-- Dumping structure for table eoes.accounts
 CREATE TABLE IF NOT EXISTS `accounts` (
   `id` varchar(255) DEFAULT NULL,
   `gpid` varchar(255) DEFAULT NULL,
@@ -28,9 +28,9 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `rank` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table bwo.accounts: ~0 rows (approximately)
+-- Dumping data for table eoes.accounts: ~0 rows (approximately)
 
--- Dumping structure for table bwo.characters
+-- Dumping structure for table eoes.characters
 CREATE TABLE IF NOT EXISTS `characters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `account_id` varchar(255) NOT NULL DEFAULT '0',
@@ -40,15 +40,15 @@ CREATE TABLE IF NOT EXISTS `characters` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table bwo.characters: ~0 rows (approximately)
+-- Dumping data for table eoes.characters: ~0 rows (approximately)
 
--- Dumping structure for table bwo.maps
+-- Dumping structure for table eoes.maps
 CREATE TABLE IF NOT EXISTS `maps` (
   `mapid` int(11) DEFAULT 0,
   `name` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table bwo.maps: ~2 rows (approximately)
+-- Dumping data for table eoes.maps: ~2 rows (approximately)
 INSERT INTO `maps` (`mapid`, `name`) VALUES
 	(0, 'NewHamilton'),
 	(1, 'Noxloma');

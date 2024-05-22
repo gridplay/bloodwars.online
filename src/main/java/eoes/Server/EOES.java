@@ -1,4 +1,4 @@
-package bws.bloodwars.online.Server;
+package eoes.Server;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,11 +22,11 @@ import io.netty.util.concurrent.GlobalEventExecutor;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 
-public class BWS {
-	 private static final Logger logger = LogManager.getLogger(BWS.class);
+public class EOES {
+	 private static final Logger logger = LogManager.getLogger(EOES.class);
 	 private final ObjectMapper objectMapper = new ObjectMapper();
 	 public static final ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
-	 public BWS(int port) throws Exception {
+	 public EOES(int port) throws Exception {
 		 EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 	     EventLoopGroup workerGroup = new NioEventLoopGroup();
 

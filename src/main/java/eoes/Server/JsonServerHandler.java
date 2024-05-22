@@ -1,4 +1,4 @@
-package bws.bloodwars.online.Server;
+package eoes.Server;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import bws.bloodwars.online.DB.UserData;
+import eoes.DB.UserData;
 
 class JsonServerHandler extends SimpleChannelInboundHandler<String> {
     private static final Logger logger = LogManager.getLogger(JsonServerHandler.class);
@@ -90,7 +90,7 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
         jsonRpcMessage.put("params", params.toString());
 		try {
 			String serializedMessage = objectMapper.writeValueAsString(jsonRpcMessage);
-	    	BWS.channels.writeAndFlush(serializedMessage + "\r\n");
+	    	EOES.channels.writeAndFlush(serializedMessage + "\r\n");
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -125,7 +125,7 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
     public void channelActive(ChannelHandlerContext ctx) {
         // Channel becomes active (connected)
     	Channel channel = ctx.channel();
-        BWS.channels.add(channel);
+        EOES.channels.add(channel);
         logger.info("Client connected: " + ctx.channel().remoteAddress());
     }
 
@@ -133,7 +133,7 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
     public void channelInactive(ChannelHandlerContext ctx) {
         // Channel becomes inactive (disconnected)
     	Channel channel = ctx.channel();
-    	BWS.channels.remove(channel);
+    	EOES.channels.remove(channel);
         logger.info("Client disconnected: " + ctx.channel().remoteAddress());
         // Clean up resources, remove client from active connections list, etc.
     }
