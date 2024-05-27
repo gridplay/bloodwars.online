@@ -5,6 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import eoes.App;
+import eoes.Realms;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -51,6 +53,8 @@ public class EOES {
         } finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
+            App app = new App();
+            app.realm.ShutdownRealm();
         }
     }
 }

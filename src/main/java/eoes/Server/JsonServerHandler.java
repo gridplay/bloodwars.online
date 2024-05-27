@@ -14,12 +14,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import eoes.App;
+import eoes.Realms;
 import eoes.DB.UserData;
 
 class JsonServerHandler extends SimpleChannelInboundHandler<String> {
     private static final Logger logger = LogManager.getLogger(JsonServerHandler.class);
     private static ObjectMapper objectMapper = new ObjectMapper();
-
+    private App app;
     public JsonServerHandler(ObjectMapper objectMapper) {
         JsonServerHandler.objectMapper = objectMapper;
     }
@@ -127,6 +129,11 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
     	Channel channel = ctx.channel();
         EOES.channels.add(channel);
         logger.info("Client connected: " + ctx.channel().remoteAddress());
+        App.ClientCount += 1;
+        if (App.ClientCount > Realms.maxClients) {
+        	ctx.close();
+        }
+        app.realm.UpdateRealm();
     }
 
     @Override
@@ -135,6 +142,8 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
     	Channel channel = ctx.channel();
     	EOES.channels.remove(channel);
         logger.info("Client disconnected: " + ctx.channel().remoteAddress());
+        App.ClientCount -= 1;
+        app.realm.UpdateRealm();
         // Clean up resources, remove client from active connections list, etc.
     }
 }

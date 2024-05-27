@@ -29,6 +29,9 @@ public class App implements Runnable {
 	public EOES eoes;
 	@SuppressWarnings("exports")
 	public Connection connection;
+	
+	public static int ClientCount = 0;
+	public Realms realm = new Realms();
 
     @Option(names = { "-p", "--port" }, description = "port to listen on")
     int port = 666;
@@ -71,6 +74,7 @@ public class App implements Runnable {
 		logger.info("Eclipse of Eternity server. Starting up");
     	try {
 			eoes = new EOES(this.port);
+			realm.SaveRealm(app);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
