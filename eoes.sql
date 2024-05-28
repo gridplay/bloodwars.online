@@ -25,7 +25,8 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `gpid` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `created` bigint(255) DEFAULT NULL,
-  `rank` int(1) DEFAULT 0
+  `rank` int(1) DEFAULT 0,
+  `session` int(255) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table eoes.accounts: ~0 rows (approximately)
@@ -35,8 +36,14 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `account_id` varchar(255) NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL DEFAULT '0',
-  `faction` int(1) NOT NULL DEFAULT 0,
-  `gender` int(1) NOT NULL DEFAULT 0,
+  `faction` enum('Vampire','Lycan','Mortal') NOT NULL,
+  `gender` enum('Male','Female','Non-Binary') NOT NULL,
+  `health` bigint(255) NOT NULL DEFAULT 100,
+  `max_health` bigint(255) NOT NULL DEFAULT 100,
+  `mapid` int(50) NOT NULL DEFAULT 0,
+  `pos` varchar(255) NOT NULL,
+  `rot` varchar(255) NOT NULL,
+  `money` float(255,2) DEFAULT 0.00,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -44,14 +51,26 @@ CREATE TABLE IF NOT EXISTS `characters` (
 
 -- Dumping structure for table eoes.maps
 CREATE TABLE IF NOT EXISTS `maps` (
-  `mapid` int(11) DEFAULT 0,
-  `name` varchar(50) DEFAULT NULL
+  `mapid` int(11) NOT NULL DEFAULT 0,
+  `name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`mapid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table eoes.maps: ~2 rows (approximately)
+-- Dumping data for table eoes.maps: ~3 rows (approximately)
 INSERT INTO `maps` (`mapid`, `name`) VALUES
-	(0, 'NewHamilton'),
-	(1, 'Noxloma');
+  (0, 'Terra Ignis'),
+  (1, 'Noxloma'),
+  (2, 'NewHamilton');
+
+-- Dumping structure for table eoes.starter_zones
+CREATE TABLE IF NOT EXISTS `starter_zones` (
+  `faction` enum('Vampire','Lycan','Mortal') DEFAULT NULL,
+  `map` int(255) DEFAULT 0,
+  `pos` varchar(255) DEFAULT NULL,
+  `rot` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table eoes.starter_zones: ~0 rows (approximately)
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
