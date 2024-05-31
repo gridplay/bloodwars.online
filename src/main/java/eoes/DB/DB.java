@@ -1,7 +1,9 @@
 package eoes.DB;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.apache.commons.configuration2.Configuration;
 import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.apache.commons.configuration2.ex.ConfigurationException;
@@ -10,32 +12,34 @@ import org.apache.logging.log4j.Logger;
 
 public class DB {
 	private static final Logger logger = LogManager.getLogger(DB.class);
-	private static Connection connection;
-
-    public static Connection getConnection() {
-        if (connection == null) {
+	public static EntityManagerFactory emf;
+    public static EntityManagerFactory getConnection() {
+        if (emf == null) {
             Configurations configs = new Configurations();
             try {
                 Configuration config = configs.ini("config.ini");
                 String url = config.getString("database.url");
                 String user = config.getString("database.user");
                 String password = config.getString("database.password");
-                connection = DriverManager.getConnection(url, user, password);
-            } catch (ConfigurationException | SQLException e) {
+                
+                java.util.Properties properties = new java.util.Properties();
+                properties.setProperty("javax.persistence.jdbc.driver", "com.mysql.cj.jdbc.Driver");
+                properties.setProperty("javax.persistence.jdbc.url", url);
+                properties.setProperty("javax.persistence.jdbc.user", user);
+                properties.setProperty("javax.persistence.jdbc.password", password);
+                emf = Persistence.createEntityManagerFactory("myPersistenceUnit", properties);
+                
+            } catch (ConfigurationException e) {
                 e.printStackTrace();
             }
         }
-        return connection;
+        return emf;
     }
 
     public static void closeConnection() {
-        if (connection != null) {
-            try {
-                connection.close();
-                logger.info("Database connection closed.");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        if (emf != null) {
+            emf.close();
+            logger.info("Database connection closed.");
         }
     }
 }

@@ -18,13 +18,12 @@ public class Realms {
 			String portstr = app.LoadConfig("server.port");
 			String servername = app.LoadConfig("server.name");
 			String servertype = app.LoadConfig("server.type");
-			String serverregion = app.LoadConfig("server.region");
 			String servermax = app.LoadConfig("server.maxclients");
 			maxClients = Integer.parseInt(servermax);
 			
 			URL url = new URL("https://eclipseofeternity.world/api/realms");
 			
-			rj = new RealmJson(Integer.parseInt(portstr), servername, servertype, serverregion);
+			rj = new RealmJson(Integer.parseInt(portstr), servername, servertype);
 			String jsonInputString = rj.getJson();
 
             // Open a connection to the URL

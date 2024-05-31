@@ -33,14 +33,15 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 
 -- Dumping structure for table eoes.characters
 CREATE TABLE IF NOT EXISTS `characters` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` bigint(255) NOT NULL AUTO_INCREMENT,
   `account_id` varchar(255) NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL DEFAULT '0',
   `faction` enum('Vampire','Lycan','Mortal') NOT NULL,
-  `gender` enum('Male','Female','Non-Binary') NOT NULL,
+  `gender` enum('Male','Female','NonBinary') NOT NULL,
   `health` bigint(255) NOT NULL DEFAULT 100,
   `max_health` bigint(255) NOT NULL DEFAULT 100,
   `mapid` int(50) NOT NULL DEFAULT 0,
+  `instance_id` bigint(255) NOT NULL DEFAULT 0,
   `pos` varchar(255) NOT NULL,
   `rot` varchar(255) NOT NULL,
   `money` float(255,2) DEFAULT 0.00,
@@ -49,18 +50,30 @@ CREATE TABLE IF NOT EXISTS `characters` (
 
 -- Dumping data for table eoes.characters: ~0 rows (approximately)
 
+-- Dumping structure for table eoes.housing_instances
+CREATE TABLE IF NOT EXISTS `housing_instances` (
+  `instance_id` bigint(255) NOT NULL AUTO_INCREMENT,
+  `map_id` int(11) NOT NULL DEFAULT 0,
+  `name` varchar(255) NOT NULL DEFAULT '0',
+  `faction` enum('Vampire','Lycan','Mortal') DEFAULT 'Vampire',
+  PRIMARY KEY (`instance_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table eoes.housing_instances: ~0 rows (approximately)
+
 -- Dumping structure for table eoes.maps
 CREATE TABLE IF NOT EXISTS `maps` (
   `mapid` int(11) NOT NULL DEFAULT 0,
   `name` varchar(50) DEFAULT NULL,
+  `instanced` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`mapid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table eoes.maps: ~3 rows (approximately)
-INSERT INTO `maps` (`mapid`, `name`) VALUES
-  (0, 'Terra Ignis'),
-  (1, 'Noxloma'),
-  (2, 'NewHamilton');
+INSERT INTO `maps` (`mapid`, `name`, `instanced`) VALUES
+  (0, 'Terra Ignis', 0),
+  (1, 'Noxloma', 1),
+  (2, 'NewHamilton', 1);
 
 -- Dumping structure for table eoes.starter_zones
 CREATE TABLE IF NOT EXISTS `starter_zones` (

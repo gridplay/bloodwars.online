@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import eoes.DB.DB;
-import eoes.DB.LoadMaps;
 import eoes.Server.EOES;
 
 import org.apache.commons.configuration2.INIConfiguration;
@@ -17,7 +16,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Connection;
+
+import javax.persistence.EntityManagerFactory;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -28,7 +28,7 @@ public class App implements Runnable {
 	private static final Logger logger = LogManager.getLogger(App.class);
 	public EOES eoes;
 	@SuppressWarnings("exports")
-	public Connection connection;
+	public EntityManagerFactory connection;
 	
 	public static int ClientCount = 0;
 	public Realms realm = new Realms();
@@ -67,7 +67,6 @@ public class App implements Runnable {
         app.connection = DB.getConnection();
         if (app.connection != null) {
             logger.info("Successfully connected to the database.");
-            LoadMaps.GetMaps(app);
         } else {
         	logger.info("Failed to connect to the database.");
         }

@@ -6,14 +6,12 @@ public class RealmJson {
 	public int port;
 	public String name;
 	public String type;
-	public String region;
 	public String population;
 	public String status;
-	public RealmJson(int port, String name, String type, String region) {
+	public RealmJson(int port, String name, String type) {
 		this.port = port;
 		this.name = name;
 		this.type = type;
-		this.region = region;
 		int max = Realms.maxClients;
 		int pop = App.ClientCount;
 		if (pop < (max / 4)) {

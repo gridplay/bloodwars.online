@@ -4,8 +4,6 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-import java.sql.SQLException;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,7 +14,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import eoes.App;
 import eoes.Realms;
-import eoes.DB.UserData;
+import eoes.DB.Accounts;
 
 class JsonServerHandler extends SimpleChannelInboundHandler<String> {
     private static final Logger logger = LogManager.getLogger(JsonServerHandler.class);
@@ -68,19 +66,14 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
         ObjectNode result = objectMapper.createObjectNode();
         result.put("message", "Login Success!");
         result.put("success", true);
-        try {
-			if (!UserData.isUserIDExists(userID)) {
-				UserData.insertData(userID, username);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (!Accounts.isUserIDExists(userID)) {
+			Accounts.insertData(userID, username);
 		}
         
-        ObjectNode sendShit = objectMapper.createObjectNode();
+        /*ObjectNode sendShit = objectMapper.createObjectNode();
         sendShit.put("username", username);
         sendShit.put("userid", userID);
-        broadcastMessage("newplayer", sendShit);
+        broadcastMessage("newplayer", sendShit);*/
         
         return result;
     }

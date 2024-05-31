@@ -5,6 +5,7 @@ module eoes {
 	requires com.fasterxml.jackson.databind;
 	requires org.apache.commons.configuration2;
 	requires java.sql;
+	requires javax.persistence;
 	//requires org.msgpack.core;
 
     opens eoes to info.picocli;
