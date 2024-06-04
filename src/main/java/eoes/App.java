@@ -29,29 +29,27 @@ public class App implements Runnable {
 	public EOES eoes;
 
 	@SuppressWarnings("exports")
-	public EntityManagerFactory connection;
+	public static EntityManagerFactory connection;
 	
 	public static int ClientCount = 0;
-	public Realms realm = new Realms();
 
     @Option(names = { "-p", "--port" }, description = "port to listen on")
-    int port = 666;
+    static int port = 666;
 
     @Override
     public void run() {
-        App app = new App();
-        String portstr = app.LoadConfig("server.port");
-        app.port = Integer.parseInt(portstr);
-        app.connection = DB.getConnection();
-        if (app.connection != null) {
+        String portstr = App.LoadConfig("server.port");
+        App.port = Integer.parseInt(portstr);
+        App.connection = DB.getConnection();
+        if (App.connection != null) {
             logger.info("Successfully connected to the database.");
         } else {
         	logger.info("Failed to connect to the database.");
         }
 		logger.info("Eclipse of Eternity server. Starting up");
+		Realms.SaveRealm();
     	try {
-			eoes = new EOES(this.port);
-			realm.SaveRealm(app);
+			eoes = new EOES(App.port);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -74,7 +72,7 @@ public class App implements Runnable {
             System.err.println("Error copying: " + e.getMessage());
         }
     }
-	public String LoadConfig(String conf) {
+	public static String LoadConfig(String conf) {
 		String ret = "";
 		Configurations configs = new Configurations();
         try {

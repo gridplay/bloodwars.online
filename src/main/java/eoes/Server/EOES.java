@@ -2,7 +2,7 @@ package eoes.Server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import eoes.App;
+import eoes.Realms;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -47,8 +47,7 @@ public class EOES {
 	        ChannelFuture f = b.bind(port).sync();
 	        f.channel().closeFuture().sync();
         } finally {
-            App app = new App();
-            app.realm.ShutdownRealm();
+            Realms.ShutdownRealm();
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }

@@ -7,25 +7,29 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Realms {
+    private static final Logger logger = LogManager.getLogger(Realms.class);
 	public static int maxClients = 0;
-	RealmJson rj;
-	public int SaveRealm(App app) {
+	static RealmJson rj;
+	public static int SaveRealm() {
 		int rid = 0;
 		try {
-			String portstr = app.LoadConfig("server.port");
-			String servername = app.LoadConfig("server.name");
-			String servertype = app.LoadConfig("server.type");
-			String servermax = app.LoadConfig("server.maxclients");
+			String portstr = App.LoadConfig("server.port");
+			String servername = App.LoadConfig("server.name");
+			String servertype = App.LoadConfig("server.type");
+			String servermax = App.LoadConfig("server.maxclients");
 			maxClients = Integer.parseInt(servermax);
 			
 			URL url = new URL("https://eclipseofeternity.world/api/realms");
 			
 			rj = new RealmJson(Integer.parseInt(portstr), servername, servertype);
 			String jsonInputString = rj.getJson();
-
+			logger.info("Info: ", jsonInputString, jsonInputString, jsonInputString, portstr, servername, servertype, servermax, url, jsonInputString);
             // Open a connection to the URL
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
@@ -37,6 +41,7 @@ public class Realms {
                 os.write(input, 0, input.length);
             }
             int responseCode = conn.getResponseCode();
+            logger.info(responseCode);
             if (responseCode == HttpURLConnection.HTTP_OK) {
                 // Read the response
                 BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -51,20 +56,21 @@ public class Realms {
                 // Parse the JSON response
                 ObjectMapper objectMapper = new ObjectMapper();
                 RealmJson jsonResponse = objectMapper.readValue(response.toString(), RealmJson.class);
-                System.out.println("JSON Response: " + jsonResponse);
+                logger.info("JSON Response: " + jsonResponse);
 
                 // Access data in the JSON response
-                System.out.println("Realm ID: " + jsonResponse.GetID());
+                logger.info("Realm ID: " + jsonResponse.GetID());
                 rid = jsonResponse.GetID();
             } else {
-                System.out.println("POST request did not work");
+            	logger.info("POST request did not work");
             }
 		}catch(Exception e) {
 			e.printStackTrace();
+			logger.error("error: "+e.toString());
 		}
 		return rid;
 	}
-	public void UpdateRealm() {
+	public static void UpdateRealm() {
 		try {
 			URL url = new URL("https://eclipseofeternity.world/api/realms");
 			rj.UpdatePop();
@@ -98,7 +104,7 @@ public class Realms {
 			e.printStackTrace();
 		}
 	}
-	public void ShutdownRealm() {
+	public static void ShutdownRealm() {
 		try {
 			URL url = new URL("https://eclipseofeternity.world/api/realms");
 			rj.UpdateStatus("Offline");

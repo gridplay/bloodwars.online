@@ -20,7 +20,7 @@ import eoes.DB.Characters;
 class JsonServerHandler extends SimpleChannelInboundHandler<String> {
     private static final Logger logger = LogManager.getLogger(JsonServerHandler.class);
     private static ObjectMapper objectMapper = new ObjectMapper();
-    private App app;
+
     public JsonServerHandler(ObjectMapper objectMapper) {
         JsonServerHandler.objectMapper = objectMapper;
     }
@@ -118,7 +118,7 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
         if (App.ClientCount > Realms.maxClients) {
         	ctx.close();
         }
-        app.realm.UpdateRealm();
+        Realms.UpdateRealm();
     }
 
     @Override
@@ -128,7 +128,7 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
     	EOES.channels.remove(channel);
         logger.info("Client disconnected: " + ctx.channel().remoteAddress());
         App.ClientCount -= 1;
-        app.realm.UpdateRealm();
+        Realms.UpdateRealm();
         // Clean up resources, remove client from active connections list, etc.
     }
 }
