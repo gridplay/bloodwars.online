@@ -6,50 +6,20 @@ import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 @Entity
 public class Accounts {
-	private String id;
-	private String gpid;
-	private String username;
-	private int created;
-	private int rank;
-	private int session;
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getGpid() {
-		return gpid;
-	}
-	public void setGpid(String gpid) {
-		this.gpid = gpid;
-	}
-	public int getCreated() {
-		return created;
-	}
-	public void setCreated(int created) {
-		this.created = created;
-	}
-	public int getRank() {
-		return rank;
-	}
-	public void setRank(int rank) {
-		this.rank = rank;
-	}
-	public int getSession() {
-		return session;
-	}
-	public void setSession(int session) {
-		this.session = session;
-	}
+	private static ObjectMapper objectMapper = new ObjectMapper();
+	public String id;
+	public String gpid;
+	public String username;
+	public int created;
+	public int rank;
+	public int session;
+	
 	public static boolean isUserIDExists(String userID) {
 		EntityManager em = DB.emf.createEntityManager();
 		Query query = em.createQuery("SELECT id FROM accounts WHERE gpid = :gpid");
@@ -67,12 +37,31 @@ public class Accounts {
 		UUID uuid = UUID.randomUUID();
         long unixTimeMillis = System.currentTimeMillis();
         long unixTimeSeconds = unixTimeMillis / 1000L;
-        acc.setId(uuid.toString());
-        acc.setGpid(userID);
-        acc.setUsername(username);
-        acc.setCreated((int)unixTimeSeconds);
+        acc.id = uuid.toString();
+        acc.gpid = userID;
+        acc.username = username;
+        acc.created = (int)unixTimeSeconds;
         em.persist(acc);
         em.getTransaction().commit();
         em.close();
 	}
+	
+	@SuppressWarnings("exports")
+	public static JsonNode handleLogin(JsonNode params) {
+        String username = params.get("username").asText();
+        String userID = params.get("userID").asText();
+        ObjectNode result = objectMapper.createObjectNode();
+        result.put("message", "Login Success!");
+        result.put("success", true);
+		if (!Accounts.isUserIDExists(userID)) {
+			Accounts.insertData(userID, username);
+		}
+        
+        /*ObjectNode sendShit = objectMapper.createObjectNode();
+        sendShit.put("username", username);
+        sendShit.put("userid", userID);
+        JsonServerHandler.broadcastMessage("newplayer", sendShit);*/
+        
+        return result;
+    }
 }

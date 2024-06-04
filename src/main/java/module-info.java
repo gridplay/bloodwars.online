@@ -6,10 +6,10 @@ module eoes {
 	requires org.apache.commons.configuration2;
 	requires java.sql;
 	requires javax.persistence;
-	//requires org.msgpack.core;
 
     opens eoes to info.picocli;
     
     exports eoes;
     exports eoes.Server;
+    exports eoes.DB;
 }

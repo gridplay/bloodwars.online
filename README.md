@@ -16,3 +16,6 @@ May 18 2024 - Got it working with Unity 6. Had to write my own TCP in unity to g
 If anyone like to help with a better way of sending and receiving messages between this and Unity 6 please hit me up on discord as venx84
 
 As of May 22 2024 thanks to ChatGPT found out that BloodWars is already a MMO so with its help on a new name went with Eclipse of Eternity.
+
+June 4 2024 - This could be the last upload of this server as im tired of stupid errors in Eclipse and how clumbsy java feels.
+Looking into other network solutions for EoE.

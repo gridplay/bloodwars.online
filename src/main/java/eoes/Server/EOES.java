@@ -1,12 +1,8 @@
 package eoes.Server;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import eoes.App;
-import eoes.Realms;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -25,9 +21,9 @@ import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 
 public class EOES {
-	 private static final Logger logger = LogManager.getLogger(EOES.class);
 	 private final ObjectMapper objectMapper = new ObjectMapper();
-	 public static final ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+	 @SuppressWarnings("exports")
+	public static final ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 	 public EOES(int port) throws Exception {
 		 EventLoopGroup bossGroup = new NioEventLoopGroup(1);
 	     EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -51,10 +47,10 @@ public class EOES {
 	        ChannelFuture f = b.bind(port).sync();
 	        f.channel().closeFuture().sync();
         } finally {
-            bossGroup.shutdownGracefully();
-            workerGroup.shutdownGracefully();
             App app = new App();
             app.realm.ShutdownRealm();
+            bossGroup.shutdownGracefully();
+            workerGroup.shutdownGracefully();
         }
     }
 }

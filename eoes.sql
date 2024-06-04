@@ -40,11 +40,13 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `gender` enum('Male','Female','NonBinary') NOT NULL,
   `health` bigint(255) NOT NULL DEFAULT 100,
   `max_health` bigint(255) NOT NULL DEFAULT 100,
-  `mapid` int(50) NOT NULL DEFAULT 0,
+  `map` varchar(255) NOT NULL DEFAULT '0',
   `instance_id` bigint(255) NOT NULL DEFAULT 0,
   `pos` varchar(255) NOT NULL,
   `rot` varchar(255) NOT NULL,
   `money` float(255,2) DEFAULT 0.00,
+  `level` int(50) NOT NULL DEFAULT 1,
+  `xp` bigint(255) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -53,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `characters` (
 -- Dumping structure for table eoes.housing_instances
 CREATE TABLE IF NOT EXISTS `housing_instances` (
   `instance_id` bigint(255) NOT NULL AUTO_INCREMENT,
-  `map_id` int(11) NOT NULL DEFAULT 0,
+  `map` varchar(255) NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL DEFAULT '0',
   `faction` enum('Vampire','Lycan','Mortal') DEFAULT 'Vampire',
   PRIMARY KEY (`instance_id`)
@@ -63,14 +65,14 @@ CREATE TABLE IF NOT EXISTS `housing_instances` (
 
 -- Dumping structure for table eoes.maps
 CREATE TABLE IF NOT EXISTS `maps` (
-  `mapid` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT 0,
   `name` varchar(50) DEFAULT NULL,
   `instanced` int(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`mapid`)
+  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table eoes.maps: ~3 rows (approximately)
-INSERT INTO `maps` (`mapid`, `name`, `instanced`) VALUES
+INSERT INTO `maps` (`id`, `name`, `instanced`) VALUES
   (0, 'Terra Ignis', 0),
   (1, 'Noxloma', 1),
   (2, 'NewHamilton', 1);
@@ -78,12 +80,17 @@ INSERT INTO `maps` (`mapid`, `name`, `instanced`) VALUES
 -- Dumping structure for table eoes.starter_zones
 CREATE TABLE IF NOT EXISTS `starter_zones` (
   `faction` enum('Vampire','Lycan','Mortal') DEFAULT NULL,
-  `map` int(255) DEFAULT 0,
+  `map` varchar(255) DEFAULT NULL,
   `pos` varchar(255) DEFAULT NULL,
-  `rot` varchar(255) DEFAULT NULL
+  `rot` varchar(255) DEFAULT NULL,
+  `instance` int(255) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table eoes.starter_zones: ~0 rows (approximately)
+-- Dumping data for table eoes.starter_zones: ~3 rows (approximately)
+INSERT INTO `starter_zones` (`faction`, `map`, `pos`, `rot`, `instance`) VALUES
+  ('Vampire', 'TerraIgnis', '1967.92017,99.0866776,-2799.1687', '0,0,0', 0),
+  ('Lycan', 'TerraIgnis', '1967.92017,99.0866776,-2799.1687', '0,0,0', 0),
+  ('Mortal', 'TerraIgnis', '1967.92017,99.0866776,-2799.1687', '0,0,0', 0);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

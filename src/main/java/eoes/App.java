@@ -27,6 +27,7 @@ import picocli.CommandLine.Option;
 public class App implements Runnable {
 	private static final Logger logger = LogManager.getLogger(App.class);
 	public EOES eoes;
+
 	@SuppressWarnings("exports")
 	public EntityManagerFactory connection;
 	
@@ -38,29 +39,6 @@ public class App implements Runnable {
 
     @Override
     public void run() {
-    	String sourceLogConfig = "/resources/log4j2.xml";
-    	String sourceLogFile = "/resources/eoes.log";
-    	String sourceConfig = "/resources/config.ini";
-        
-        String destinationLogConfig = "log4j2.xml";
-        String destinationLogFile = "eoes.log";
-        String destinationConfig = "config.ini";
-
-        // Check if the log4j.xml file already exists
-        File configconfigFile = new File(destinationLogConfig);
-        if (!configconfigFile.exists()) {
-        	copyFileFromJar(sourceLogConfig, destinationLogConfig);
-        }
-        // Check if the bws.log file already exists
-        File logconfigFile = new File(destinationLogFile);
-        if (!logconfigFile.exists()) {
-        	copyFileFromJar(sourceLogFile, destinationLogFile);
-        }
-        // Check if the config.ini file already exists
-        File configFile = new File(destinationConfig);
-        if (!configFile.exists()) {
-        	copyFileFromJar(sourceConfig, destinationConfig);
-        }
         App app = new App();
         String portstr = app.LoadConfig("server.port");
         app.port = Integer.parseInt(portstr);
@@ -109,6 +87,29 @@ public class App implements Runnable {
         return ret;
 	}
     public static void main(String[] args) {
+    	String sourceLogConfig = "/resources/log4j2.xml";
+    	String sourceLogFile = "/resources/eoes.log";
+    	String sourceConfig = "/resources/config.ini";
+        
+        String destinationLogConfig = "log4j2.xml";
+        String destinationLogFile = "eoes.log";
+        String destinationConfig = "config.ini";
+
+        // Check if the log4j.xml file already exists
+        File configconfigFile = new File(destinationLogConfig);
+        if (!configconfigFile.exists()) {
+        	copyFileFromJar(sourceLogConfig, destinationLogConfig);
+        }
+        // Check if the bws.log file already exists
+        File logconfigFile = new File(destinationLogFile);
+        if (!logconfigFile.exists()) {
+        	copyFileFromJar(sourceLogFile, destinationLogFile);
+        }
+        // Check if the config.ini file already exists
+        File configFile = new File(destinationConfig);
+        if (!configFile.exists()) {
+        	copyFileFromJar(sourceConfig, destinationConfig);
+        }
         System.exit(new CommandLine(new App()).execute(args));
     }
 

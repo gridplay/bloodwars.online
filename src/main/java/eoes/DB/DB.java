@@ -1,5 +1,4 @@
 package eoes.DB;
-import java.sql.Connection;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -12,8 +11,10 @@ import org.apache.logging.log4j.Logger;
 
 public class DB {
 	private static final Logger logger = LogManager.getLogger(DB.class);
+	@SuppressWarnings("exports")
 	public static EntityManagerFactory emf;
-    public static EntityManagerFactory getConnection() {
+    @SuppressWarnings("exports")
+	public static EntityManagerFactory getConnection() {
         if (emf == null) {
             Configurations configs = new Configurations();
             try {

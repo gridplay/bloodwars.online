@@ -1,4 +1,4 @@
-package eoes.Server;
+package eoes;
 
 public enum Gender {
 	Male,

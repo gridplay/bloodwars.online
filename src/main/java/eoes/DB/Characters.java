@@ -1,89 +1,146 @@
 package eoes.DB;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.util.List;
 
-import eoes.Server.*;
+import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.Id;
+import javax.persistence.Query;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import eoes.Faction;
+import eoes.Gender;
 
 @Entity
 public class Characters {
+	private static ObjectMapper objectMapper = new ObjectMapper();
 	@Id
-	private int id;
-	private String account_id;
-	private String name;
-	private Faction faction;
-	private Gender gender;
-	private int health;
-	private int max_health;
-	private int mapid;
-	private int instance_id;
-	private String pos;
-	private String rot;
-	private float money;
-	public String getAccount_id() {
-		return account_id;
+	public int id;
+	public String account_id;
+	public String name;
+	public Faction faction;
+	public Gender gender;
+	public int health;
+	public int max_health;
+	public String map;
+	public int instance_id;
+	public String pos;
+	public String rot;
+	public float money;
+	public int level;
+	public int xp;
+	
+	@SuppressWarnings("unchecked")
+	public static List<Characters> GetChars(String accID) {
+		EntityManager em = DB.emf.createEntityManager();
+		List<Characters> chars = null;
+		try {
+            em.getTransaction().begin();
+			Query query = em.createQuery("SELECT * FROM characters WHERE account_id = :account_id");
+			query.setParameter("account_id", accID);
+			chars = query.getResultList();
+			
+			em.getTransaction().commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+        } finally {
+            em.close();
+		}
+		return chars;
 	}
-	public void setAccount_id(String account_id) {
-		this.account_id = account_id;
+
+    @SuppressWarnings("exports")
+	public static JsonNode handleChars(JsonNode params) {
+    	String userID = params.get("userID").asText();
+    	List<Characters> chars = Characters.GetChars(userID);
+        ObjectNode result = objectMapper.createObjectNode();
+        result.put("chars", chars.toString());
+		return result;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Faction getFaction() {
-		return faction;
-	}
-	public void setFaction(Faction faction) {
-		this.faction = faction;
-	}
-	public Gender getGender() {
-		return gender;
-	}
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}
-	public int getHealth() {
-		return health;
-	}
-	public void setHealth(int health) {
-		this.health = health;
-	}
-	public int getMax_health() {
-		return max_health;
-	}
-	public void setMax_health(int max_health) {
-		this.max_health = max_health;
-	}
-	public int getMapid() {
-		return mapid;
-	}
-	public void setMapid(int mapid) {
-		this.mapid = mapid;
-	}
-	public int getInstance_id() {
-		return instance_id;
-	}
-	public void setInstance_id(int instance_id) {
-		this.instance_id = instance_id;
-	}
-	public String getPos() {
-		return pos;
-	}
-	public void setPos(String pos) {
-		this.pos = pos;
-	}
-	public String getRot() {
-		return rot;
-	}
-	public void setRot(String rot) {
-		this.rot = rot;
-	}
-	public float getMoney() {
-		return money;
-	}
-	public void setMoney(float money) {
-		this.money = money;
+    @SuppressWarnings("exports")
+	public static JsonNode CreateChar(JsonNode params) {
+    	EntityManager em = DB.emf.createEntityManager();
+    	int fac = params.get("faction").asInt();
+    	Faction faction = Faction.Mortal;
+    	switch(fac) {
+    		case 0:
+    			faction = Faction.Vampire;
+    			break;
+    		case 1:
+    			faction = Faction.Lycan;
+    			break;
+    		case 2:
+    			faction = Faction.Mortal;
+    			break;
+    		default:
+    			faction = Faction.Vampire;
+    			break;
+    	}
+    	int gen = params.get("gender").asInt();
+    	Gender gender = Gender.NonBinary;
+    	switch(gen) {
+    		case 0:
+    			gender = Gender.Male;
+    			break;
+    		case 1:
+    			gender = Gender.Female;
+    			break;
+    		case 2:
+    			gender = Gender.NonBinary;
+    			break;
+    		default:
+    			gender = Gender.Male;
+    			break;
+    	}
+    	StarterZone zone = StarterZone.getZone(faction);
+    	try {
+    		em.getTransaction().begin();
+    		Characters chars = new Characters();
+    		chars.account_id = params.get("accid").asText();
+    		chars.name = params.get("name").asText();
+    		chars.faction = faction;
+    		chars.gender = gender;
+    		chars.health = 100;
+    		chars.max_health = 100;
+    		chars.money = 0.00f;
+    		chars.level = 1;
+    		chars.xp = 0;
+    		chars.instance_id = zone.instance;
+    		chars.map = zone.map;
+    		chars.pos = zone.pos;
+    		chars.rot = zone.rot;
+            em.persist(chars);
+            em.getTransaction().commit();
+            em.close();
+    	}finally {
+    		em.close();
+    	}
+        ObjectNode result = objectMapper.createObjectNode();
+        result.put("status", "success");
+        return result;
+    }
+
+	@SuppressWarnings("exports")
+	public static JsonNode GetChars(JsonNode params) {
+		EntityManager em = DB.emf.createEntityManager();
+		Characters chars = new Characters();
+		try {
+            em.getTransaction().begin();
+			Query query = em.createQuery("SELECT * FROM characters WHERE id = :id");
+			query.setParameter("id", params.get("charID").asText());
+			chars = (Characters)query.getResultList();
+			
+			em.getTransaction().commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+        } finally {
+            em.close();
+		}
+		ObjectNode result = objectMapper.createObjectNode();
+		result.put("char", chars.toString());
+		return result;
 	}
 }

@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import eoes.App;
 import eoes.Realms;
 import eoes.DB.Accounts;
+import eoes.DB.Characters;
 
 class JsonServerHandler extends SimpleChannelInboundHandler<String> {
     private static final Logger logger = LogManager.getLogger(JsonServerHandler.class);
@@ -51,31 +52,22 @@ class JsonServerHandler extends SimpleChannelInboundHandler<String> {
         JsonNode result;
         switch (method) {
             case "login":
-                result = handleLogin(params);
+                result = Accounts.handleLogin(params);
                 break;
+            case "getchars":
+            	result = Characters.handleChars(params);
+            	break;
+            case "createchar":
+            	result = Characters.CreateChar(params);
+            	break;
+            case "charselected":
+            	result = Characters.GetChars(params);
+            	break;
             default:
                 return createErrorResponse(id, -32601, "Method not found");
         }
 
         return createSuccessResponse(id, result);
-    }
-
-    private static JsonNode handleLogin(JsonNode params) {
-        String username = params.get("username").asText();
-        String userID = params.get("userID").asText();
-        ObjectNode result = objectMapper.createObjectNode();
-        result.put("message", "Login Success!");
-        result.put("success", true);
-		if (!Accounts.isUserIDExists(userID)) {
-			Accounts.insertData(userID, username);
-		}
-        
-        /*ObjectNode sendShit = objectMapper.createObjectNode();
-        sendShit.put("username", username);
-        sendShit.put("userid", userID);
-        broadcastMessage("newplayer", sendShit);*/
-        
-        return result;
     }
     
 	public static void broadcastMessage(String method, ObjectNode params) {
