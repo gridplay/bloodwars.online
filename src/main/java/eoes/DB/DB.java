@@ -29,12 +29,12 @@ public class DB {
                 properties.setProperty("javax.persistence.jdbc.user", user);
                 properties.setProperty("javax.persistence.jdbc.password", password);
                 emf = Persistence.createEntityManagerFactory("myPersistenceUnit", properties);
-                
+                return emf;
             } catch (ConfigurationException e) {
                 e.printStackTrace();
             }
         }
-        return emf;
+        return null;
     }
 
     public static void closeConnection() {
