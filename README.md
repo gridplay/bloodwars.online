@@ -19,3 +19,5 @@ As of May 22 2024 thanks to ChatGPT found out that BloodWars is already a MMO so
 
 June 4 2024 - This could be the last upload of this server as im tired of stupid errors in Eclipse and how clumbsy java feels.
 Looking into other network solutions for EoE.
+
+June 5 2024 - Put this repo in archive mode cuz of to many errors that makes no sense at all to me. If anyone wants to fork it for yourself or steal the code go for it cuz im done with Java
